@@ -1,30 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class Intro : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject InputField;
-    public Data Data;
+
+    public GameObject inputField;
+    public Data data;
     public Color error;
-    void Start()
+
+    public void NextScene() 
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void NextScene() {
-        if(InputField.GetComponent<InputField>().text == "") {
-             InputField.GetComponent<Image>().color = error;
-        } else {
-            Data.name = InputField.GetComponent<InputField>().text;
+        if(inputField.GetComponent<InputField>().text == "") 
+        {
+             inputField.GetComponent<Image>().color = error;
+        } 
+        else 
+        {
+            data.name = inputField.GetComponent<InputField>().text;
             SceneManager.LoadScene("Main");
 
         }

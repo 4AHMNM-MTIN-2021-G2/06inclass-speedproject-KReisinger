@@ -1,38 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
-    public Data Data;
-    public Text Name;
-    public Text RandValueTxt;
-    public Text Time;
-    public Text Message;
+    public Data data;
+    public Text name;
+    public Text randValueTxt;
+    public Text time;
+    public Text message;
     void Start()
     {
-        Name.text = Data.name;
-        RandValueTxt.text = Data.randomVal.ToString("f2");
-        Time.text = Data.time.ToString("f2");
+        name.text = data.name;
+        randValueTxt.text = data.randomVal.ToString("f2");
+        time.text = data.time.ToString("f2");
 
-        float TimeTmp = Data.time;
-        if(TimeTmp < 3) {
-            Message.text = "Du bist Super!";
-        } else if(TimeTmp < 6) {
-            Message.text = "Du bist fast zu langsam";
-        } else {
-            Message.text = "Du bist zu langsam";
+        float timeTmp = data.time;
+        if(timeTmp < 3) 
+        {
+            message.text = "Du bist Super!";
+        } else if(timeTmp < 6) 
+        {
+            message.text = "Du bist fast zu langsam";
+        } else 
+        {
+            message.text = "Du bist zu langsam";
         }
         
     }
 
-    public void ResetScene() {
-        Data.name = "";
-        Data.randomVal = 0;
-        Data.time = 0;
-        Debug.Log("test");
+    public void ResetScene() 
+    {
+        data.name = "";
+        data.randomVal = 0;
+        data.time = 0;
         SceneManager.LoadScene("Intro");
     }
 
